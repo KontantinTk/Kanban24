@@ -43,10 +43,28 @@ Class Consultinfo_Kanbanboard extends CModule{
 	}
 
 	function InstallEvents(){
+
+        RegisterModuleDependences(
+            'rest',
+            'OnRestServiceBuildDescription',
+            $this->MODULE_ID,
+            '\Kanban\Rest',
+            'OnRestServiceBuildDescription'
+        );
+
 		return true;
 	}
 
 	function UnInstallEvents(){
+
+        UnRegisterModuleDependences(
+            'rest',
+            'OnRestServiceBuildDescription',
+            $this->MODULE_ID,
+            '\Kanban\Rest',
+            'OnRestServiceBuildDescription'
+        );
+
 		return true;
 	}
 
