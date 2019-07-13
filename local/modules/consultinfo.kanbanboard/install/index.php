@@ -4,7 +4,7 @@ use \Bitrix\Main\Application;
 
 Loc::loadMessages(__FILE__);
 
-Class consultinfo_kanbanboard extends CModule{
+Class Consultinfo_Kanbanboard extends CModule{
 	var	$MODULE_ID = 'consultinfo.kanbanboard';
 	var $MODULE_VERSION;
 	var $MODULE_VERSION_DATE;
