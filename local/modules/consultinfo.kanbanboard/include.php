@@ -7,6 +7,7 @@ IncludeModuleLangFile(__FILE__);
 CModule::AddAutoloadClasses(
     'consultinfo.kanbanboard',
     array(
-        '\Kanban\Rest' => '/lib/rest.php',
+        '\Kanban\Rest' => '/lib/Rest.php',
+        '\Kanban\TaskStageToKanbanStageTable' => '/lib/TaskStageToKanbanStage.php',
     )
 );
