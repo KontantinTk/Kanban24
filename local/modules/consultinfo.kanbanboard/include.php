@@ -9,5 +9,6 @@ CModule::AddAutoloadClasses(
     array(
         '\Kanban\Rest' => '/lib/Rest.php',
         '\Kanban\TaskStageToKanbanStageTable' => '/lib/TaskStageToKanbanStage.php',
+        '\Kanban\Action' => '/lib/Action.php',
     )
 );
