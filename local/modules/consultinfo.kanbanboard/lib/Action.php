@@ -12,7 +12,7 @@ use \Bitrix\Tasks\Internals\Task\SortingTable;
 class Action
 {
 
-    const DEFAULT_LIMIT = 10;
+    const DEFAULT_LIMIT = 5;
 
     public static function getUserStages($userId)
     {
@@ -52,16 +52,18 @@ class Action
                 ),
             ),
             "order" => array(
-                'SORTING.SORT' => 'ASC'
+                'SORTING.SORT' => 'ASC',
             ),
             'filter' => array(
+                '>SORTING.SORT' => 0,
                 'TASK_TO_STAGE.STAGE.ENTITY_TYPE' => 'U',
                 'TASK_TO_STAGE.STAGE.ENTITY_ID' => $userId,
+                'SORTING.USER_ID' => $userId,
                 'TASK_TO_STAGE.STAGE_ID' => $stageId,
-                'STATUS' => array(1,2,3)
+                '<=STATUS' => 3
             ),
             'select' => array(
-                '*', 'SORTING.SORT'
+                'ID', 'TITLE', 'STAGE' => 'TASK_TO_STAGE.STAGE.TITLE'
             ),
             'limit' => self::DEFAULT_LIMIT ? self::DEFAULT_LIMIT : null
         ));
